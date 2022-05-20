@@ -1,0 +1,47 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+form div {
+    margin-bottom: 18px;
+}
+
+.checkb {
+    height: 3em;
+}
+
+.tab-1 {
+    padding-left: 1.1em;
+}
+
+.tab-2 {
+    padding-left: 2.2em;
+}
+
+.tab-3 {
+    padding-left: 3.3em;
+}
+
+.selection {
+    width:100%;
+}
+
+select option:disabled {
+    color: #000;
+    font-weight: 500;
+}

@@ -1,0 +1,84 @@
+﻿@model BlueBird.Models.UserFormViewModel
+
+<div class="row">
+	<div class="col-md-9 offset-md-3">
+		<p>Please enter your name and pick the Sectors you are currently involved in.</p>
+		<form asp-action="Index" autocomplete="off">
+			<div class="form-group row">
+				<label asp-for="Name" class="col-sm-1 control-label">Name:</label>
+				<div class="col-sm-5">
+					<input asp-for="Name" class="form-control">
+					<span asp-validation-for="Name" class="text-danger"></span>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label asp-for="SectorValues" class="col-sm-1 control-label">Sectors:</label>
+				<div class="col-sm-5">
+					<select asp-for="SectorValues" class="form-control selection" size="6" multiple>
+						@foreach (var elem0 in Model.SectorData)
+						{
+							@if(elem0.Children == null)
+							{
+								<option value="@elem0.Value">@elem0.Name</option>
+							}
+							else
+							{
+								<option value="@elem0.Value" disabled>@elem0.Name</option>
+								@foreach (var elem1 in elem0.Children)
+								{
+									@if(elem1.Children == null)
+									{
+										<option value="@elem1.Value" class="tab-1">@elem1.Name</option>
+									}
+									else
+									{
+										<option value="@elem1.Value" class="tab-1" disabled>@elem1.Name</option>
+										@foreach (var elem2 in elem1.Children)
+										{
+											@if(elem2.Children == null)
+											{
+												<option value="@elem2.Value" class="tab-2">@elem2.Name</option>
+											}
+											else
+											{
+												<option value="@elem2.Value" class="tab-2" disabled>@elem2.Name</option>
+												@foreach (var elem3 in elem2.Children)
+												{
+													<option value="@elem3.Value" class="tab-3">@elem3.Name</option>
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					</select>
+					<span asp-validation-for="SectorValues" class="text-danger"></span>
+				</div>
+			</div>
+			<div class="form-group checkb">
+				<input class="form-check-input offset-sm-1" asp-for="IsAgreedToTerms" />
+				<label asp-for="IsAgreedToTerms" class="control-label">Agree to terms</label>
+				<div class="offset-sm-1">
+					<span asp-validation-for="IsAgreedToTerms" class="text-danger"></span>
+				</div>
+			</div>
+			@*I'm using this hidden stuff because I'm not able to use the Session for some myzterious reason...*@
+			<div hidden>
+				<label asp-for="UserFormFillingId" class="col-sm-1 control-label"></label>
+				<div class="col-sm-5">
+					<input asp-for="UserFormFillingId" class="form-control">
+				</div>
+			</div>
+			<div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-success" />
+            </div>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+    @{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}
