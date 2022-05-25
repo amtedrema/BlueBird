@@ -1,7 +1,7 @@
 **Programming test**
 
-Before building and running the code you have to update the database 
-and before that please check if the ConnectionString is ok for you. It's located in the appsettings.json
+Please update the database before building and running the code 
+and also check if the ConnectionString is ok for you. It's located in the appsettings.json.
 
 
 **Tasks:**
@@ -18,7 +18,7 @@ and before that please check if the ConnectionString is ok for you. It's located
 3.4. Allow the user to edit his/her own data during the session
 
 **index.html:**
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+```
 <!-- saved from url=(0094)file:///C:/Users/oliver.stimmer/AppData/Roaming/Skype/My%20Skype%20Received%20Files/index.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body>Please enter your name and pick the Sectors you are currently involved in.
 <br>
@@ -117,4 +117,4 @@ Sectors:
 <br>
 <br>
 <input type="submit" value="Save"></body></html>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+```
